@@ -1,0 +1,223 @@
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+body{
+
+    background:#d9d9d9;
+
+}
+
+
+/*-- MENU --*/
+
+.container-menu{
+
+    width:500px;
+    margin:70px auto;
+    background:white;
+    border:2px solid #666;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,.3);
+    padding:40px;
+
+}
+
+.titulo{
+
+    text-align:center;
+
+}
+
+.titulo h1{
+
+    font-size:38px;
+    margin-bottom:10px;
+
+}
+
+.titulo h3{
+
+    color:#666;
+    margin-bottom:40px;
+
+}
+
+.menu{
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+
+}
+
+
+/*-- BOTÕES -- */
+
+button{
+
+    cursor:pointer;
+
+}
+
+.botao-menu{
+
+    width:100%;
+    height:55px;
+    background:#d6d6d6;
+    border:1px solid #777;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:6px;
+    transition:.3s;
+
+}
+
+.botao-menu:hover{
+
+    background:#bdbdbd;
+
+}
+
+
+/* -- PÁGINAS --*/
+
+.container{
+
+    width:1200px;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    border:2px solid gray;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
+
+}
+
+h1{
+
+    text-align:center;
+    margin-bottom:20px;
+
+}
+
+.linha{
+
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+
+}
+
+.bloco{
+
+    width:48%;
+
+}
+
+label{
+
+    display:block;
+    margin-top:12px;
+    font-weight:bold;
+
+}
+
+input{
+
+    width:100%;
+    height:32px;
+    padding-left:8px;
+    margin-top:4px;
+
+}
+
+.botoes{
+
+    margin-top:20px;
+
+}
+
+.botoes button{
+
+    width:120px;
+    height:35px;
+    margin-right:8px;
+    background:#d9d9d9;
+    border:1px solid gray;
+
+}
+
+.botao-listar{
+
+    margin-top:15px;
+    width:200px;
+    height:35px;
+    background:#d9d9d9;
+    border:1px solid gray;
+
+}
+
+
+/*-- TABELAS --*/
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+
+}
+
+th{
+
+    background:#cfcfcf;
+    border:1px solid gray;
+    height:35px;
+
+}
+
+td{
+
+    border:1px solid gray;
+    height:30px;
+    text-align:center;
+
+}
+
+
+/*--  BOTÃO MENU --*/
+
+.menu-inferior{
+
+    text-align:center;
+    margin-top:25px;
+
+}
+
+.menu-inferior button{
+
+    width:140px;
+    height:40px;
+    background:#d6d6d6;
+    border:1px solid gray;
+
+}
+
+
+/*-- BOTÃO EXCLUIR --*/
+
+.excluir{
+
+    margin-top:15px;
+    width:150px;
+    height:35px;
+    background:#d6d6d6;
+    border:1px solid gray;
+
+}

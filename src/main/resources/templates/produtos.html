@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Produtos</title>
+
+    <link rel="stylesheet"
+          th:href="@{/style.css}">
+
+</head>
+
+<body>
+
+<h1>Cadastro de Produtos</h1>
+
+<div class="bloco">
+
+    <h2>Novo Produto</h2>
+
+    <form th:action="@{/produtos/salvar}"
+          method="post">
+
+        <label>Nome do Produto</label>
+
+        <input type="text"
+               name="nome"
+               required>
+
+        <label>Fabricante</label>
+
+        <input type="text"
+               name="fabricante"
+               required>
+
+        <label>Fornecedor</label>
+
+        <input type="text"
+               name="fornecedor"
+               required>
+
+        <div class="botoes">
+
+            <button type="submit">
+                Cadastrar
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<br>
+
+<hr>
+
+<h2>Produtos Cadastrados</h2>
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Fabricante</th>
+            <th>Fornecedor</th>
+            <th>Ação</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr th:each="produto : ${produtos}">
+
+            <td th:text="${produto.id}">
+                1
+            </td>
+
+            <td th:text="${produto.nome}">
+                Produto
+            </td>
+
+            <td th:text="${produto.fabricante}">
+                Fabricante
+            </td>
+
+            <td th:text="${produto.fornecedor}">
+                Fornecedor
+            </td>
+
+            <td>
+
+                <a th:href="@{/produtos/excluir/{id}(id=${produto.id})}"
+                   onclick="return confirm('Deseja excluir este produto?')">
+
+                    <button type="button"
+                            class="excluir">
+
+                        Excluir
+
+                    </button>
+
+                </a>
+
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>
+
+<br>
+
+<div class="menu-inferior">
+
+    <a th:href="@{/fornecedores}">
+
+        <button type="button">
+            Fornecedores
+        </button>
+
+    </a>
+
+    <a th:href="@{/}">
+
+        <button type="button">
+            Menu Principal
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+
+</html>
