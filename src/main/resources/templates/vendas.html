@@ -1,15 +1,173 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Vendas</title>
+
+    <link rel="stylesheet"
+          th:href="@{/style.css}">
+
+</head>
+
+<body>
+
+<h1>Cadastro de Vendas</h1>
+
+<div class="bloco">
+
+    <h2>Nova Venda</h2>
+
+    <form th:action="@{/vendas/salvar}"
+          method="post">
+
+        <label>Produto</label>
+
+        <input type="text"
+               name="produto"
+               required>
+
+
+        <label>Plataforma</label>
+
+        <input type="text"
+               name="plataforma"
+               required>
+
+
+        <label>Valor</label>
+
+        <input type="number"
+               name="valor"
+               step="0.01"
+               min="0"
+               required>
+
+
+        <label>Data da Venda</label>
+
+        <input type="date"
+               name="dataVenda"
+               required>
+
+
+        <div class="botoes">
+
+            <button type="submit">
+                Cadastrar
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<br>
+
+<hr>
+
+<h2>Vendas Cadastradas</h2>
+
+<table>
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Produto</th>
+            <th>Plataforma</th>
+            <th>Valor</th>
+            <th>Data da Venda</th>
+            <th>Ação</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr th:each="venda : ${vendas}">
+
+            <td th:text="${venda.id}">
+                1
+            </td>
+
+            <td th:text="${venda.produto}">
+                Produto
+            </td>
+
+            <td th:text="${venda.plataforma}">
+                Plataforma
+            </td>
+
+            <td th:text="${venda.valor}">
+                0.00
+            </td>
+
+            <td th:text="${venda.dataVenda}">
+                01/01/2026
+            </td>
+
+            <td>
+
+                <a th:href="@{/vendas/excluir/{id}(id=${venda.id})}"
+                   onclick="return confirm('Deseja excluir esta venda?')">
+
+                    <button type="button"
+                            class="excluir">
+
+                        Excluir
+
+                    </button>
+
+                </a>
+
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>
+
+<br>
+
+<div class="menu-inferior">
+
+    <a th:href="@{/produtos}">
+
+        <button type="button">
+            Produtos
+        </button>
+
+    </a>
+
+    <a th:href="@{/fornecedores}">
+
+        <button type="button">
+            Fornecedores
+        </button>
+
+    </a>
+
+    <a th:href="@{/}">
+
+        <button type="button">
+            Menu Principal
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+
 </html>
