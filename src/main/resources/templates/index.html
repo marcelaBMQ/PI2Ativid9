@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema PI2</title>
+
+    <link rel="stylesheet"
+          th:href="@{/style.css}">
+
+</head>
+
+<body>
+
+<h1>MENU</h1>
+
+<div class="linha">
+
+    <div class="bloco">
+
+        <h2>Produtos</h2>
+
+        <p>
+            Cadastro  - Consulta - Exclusão 
+        </p>
+
+        <a th:href="@{/produtos}">
+
+            <button type="button">
+                Produtos
+            </button>
+
+        </a>
+
+    </div>
+
+
+    <div class="bloco">
+
+        <h2>Fornecedores</h2>
+
+        <p>
+            Cadastro  - Consulta - Exclusão 
+        </p>
+
+        <a th:href="@{/fornecedores}">
+
+            <button type="button">
+                Fornecedores
+            </button>
+
+        </a>
+
+    </div>
+
+
+    <div class="bloco">
+
+        <h2>Vendas</h2>
+
+        <p>
+            Cadastro  - Consulta - Exclusão 
+        </p>
+
+        <a th:href="@{/vendas}">
+
+            <button type="button">
+                Vendas
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

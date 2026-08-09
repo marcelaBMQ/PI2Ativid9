@@ -20,58 +20,128 @@
 
 <h1>Cadastro de Vendas</h1>
 
-<div class="bloco">
+<div class="linha">
 
-    <h2>Nova Venda</h2>
+    <!-- CADASTRO -->
 
-    <form th:action="@{/vendas/salvar}"
-          method="post">
+    <div class="bloco">
 
-        <label>Produto</label>
+        <h2>Cadastro</h2>
 
-        <input type="text"
-               name="produto"
-               required>
+        <form th:action="@{/vendas/salvar}"
+              method="post">
+
+            <label>Produto</label>
+
+            <input type="text"
+                   name="produto"
+                   required>
+
+            <label>Plataforma</label>
+
+            <input type="text"
+                   name="plataforma"
+                   required>
+
+            <label>Valor (R$)</label>
+
+            <input type="number"
+                   name="valor"
+                   step="0.01"
+                   required>
+
+            <label>Data</label>
+
+            <input type="date"
+                   name="dataVenda"
+                   required>
+
+            <div class="botoes">
+
+                <button type="submit">
+                    Cadastrar
+                </button>
+
+                <a th:href="@{/vendas}">
+                    <button type="button">
+                        Listar
+                    </button>
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
 
 
-        <label>Plataforma</label>
+    <!-- PESQUISA -->
 
-        <input type="text"
-               name="plataforma"
-               required>
+    <div class="bloco">
 
+        <h2>Pesquisar</h2>
 
-        <label>Valor</label>
+        <!-- PESQUISA POR PRODUTO -->
 
-        <input type="number"
-               name="valor"
-               step="0.01"
-               min="0"
-               required>
+        <form th:action="@{/vendas/buscar/produto}"
+              method="get">
 
+            <label>Produto</label>
 
-        <label>Data da Venda</label>
-
-        <input type="date"
-               name="dataVenda"
-               required>
-
-
-        <div class="botoes">
+            <input type="text"
+                   name="produto">
 
             <button type="submit">
-                Cadastrar
+                Buscar Produto
             </button>
 
-        </div>
+        </form>
 
-    </form>
+
+        <!-- PESQUISA POR PLATAFORMA -->
+
+        <form th:action="@{/vendas/buscar/plataforma}"
+              method="get">
+
+            <label>Plataforma</label>
+
+            <input type="text"
+                   name="plataforma">
+
+            <button type="submit">
+                Buscar Plataforma
+            </button>
+
+        </form>
+
+
+        <!-- PESQUISA POR DATA -->
+
+        <form th:action="@{/vendas/buscar/data}"
+              method="get">
+
+            <label>Data</label>
+
+            <input type="date"
+                   name="data">
+
+            <button type="submit">
+                Buscar Data
+            </button>
+
+        </form>
+
+    </div>
 
 </div>
+
 
 <br>
 
 <hr>
+
+
+<!-- LISTAGEM -->
 
 <h2>Vendas Cadastradas</h2>
 
@@ -79,89 +149,74 @@
 
     <thead>
 
-        <tr>
+    <tr>
 
-            <th>ID</th>
-            <th>Produto</th>
-            <th>Plataforma</th>
-            <th>Valor</th>
-            <th>Data da Venda</th>
-            <th>Ação</th>
+        <th>ID</th>
+        <th>Produto</th>
+        <th>Plataforma</th>
+        <th>Valor</th>
+        <th>Data</th>
+        <th>Ação</th>
 
-        </tr>
+    </tr>
 
     </thead>
 
     <tbody>
 
-        <tr th:each="venda : ${vendas}">
+    <tr th:each="venda : ${vendas}">
 
-            <td th:text="${venda.id}">
-                1
-            </td>
+        <td th:text="${venda.id}">
+            1
+        </td>
 
-            <td th:text="${venda.produto}">
-                Produto
-            </td>
+        <td th:text="${venda.produto}">
+            Produto
+        </td>
 
-            <td th:text="${venda.plataforma}">
-                Plataforma
-            </td>
+        <td th:text="${venda.plataforma}">
+            Plataforma
+        </td>
 
-            <td th:text="${venda.valor}">
-                0.00
-            </td>
+        <td th:text="${venda.valor}">
+            0.00
+        </td>
 
-            <td th:text="${venda.dataVenda}">
-                01/01/2026
-            </td>
+        <td th:text="${venda.dataVenda}">
+            01/01/2026
+        </td>
 
-            <td>
+        <td>
 
-                <a th:href="@{/vendas/excluir/{id}(id=${venda.id})}"
-                   onclick="return confirm('Deseja excluir esta venda?')">
+            <a th:href="@{/vendas/excluir/{id}(id=${venda.id})}"
+               onclick="return confirm('Deseja excluir esta venda?')">
 
-                    <button type="button"
-                            class="excluir">
+                <button type="button"
+                        class="excluir">
 
-                        Excluir
+                    Excluir
 
-                    </button>
+                </button>
 
-                </a>
+            </a>
 
-            </td>
+        </td>
 
-        </tr>
+    </tr>
 
     </tbody>
 
 </table>
 
+
 <br>
 
 <div class="menu-inferior">
 
-    <a th:href="@{/produtos}">
-
-        <button type="button">
-            Produtos
-        </button>
-
-    </a>
-
-    <a th:href="@{/fornecedores}">
-
-        <button type="button">
-            Fornecedores
-        </button>
-
-    </a>
-
     <a th:href="@{/}">
 
         <button type="button">
-            Menu Principal
+            Menu
         </button>
 
     </a>

@@ -33,4 +33,37 @@ public class VendaController {
         service.excluir(id);
         return "redirect:/vendas";
     }
+
+    @GetMapping("/buscar/produto")
+    public String buscarPorProduto(
+            @RequestParam String produto,
+            Model model) {
+
+        model.addAttribute("vendas",
+                service.buscarPorProduto(produto));
+
+        return "vendas";
+    }
+
+    @GetMapping("/buscar/plataforma")
+    public String buscarPorPlataforma(
+            @RequestParam String plataforma,
+            Model model) {
+
+        model.addAttribute("vendas",
+                service.buscarPorPlataforma(plataforma));
+
+        return "vendas";
+    }
+
+    @GetMapping("/buscar/data")
+    public String buscarPorData(
+            @RequestParam String data,
+            Model model) {
+
+        model.addAttribute("vendas",
+                service.buscarPorData(data));
+
+        return "vendas";
+    }
 }

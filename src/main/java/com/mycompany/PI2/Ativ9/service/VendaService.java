@@ -30,4 +30,16 @@ public class VendaService {
     public Venda buscarPorId(Long id) {
         return repository.findById(id).orElse(null);
     }
+
+    public List<Venda> buscarPorProduto(String produto) {
+        return repository.findByProdutoContainingIgnoreCase(produto);
+    }
+
+    public List<Venda> buscarPorPlataforma(String plataforma) {
+        return repository.findByPlataformaContainingIgnoreCase(plataforma);
+    }
+
+    public List<Venda> buscarPorData(String data) {
+        return repository.findByDataVenda(data);
+    }
 }
