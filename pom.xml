@@ -11,6 +11,9 @@
 	<groupId>com.mycompany</groupId>
 	<artifactId>PI2.Ativ9</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+        
+        <packaging>war</packaging>
+        
 	<name>PI2.Ativ9</name>
 	<description/>
 	<url/>
